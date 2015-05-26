@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login page</title>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#btn_submit").click(function(){
+				var userName = $("#user_name").val();
+				var password = $("#password").val();
+				login(userName, password, 
+					function(){
+						$("#message").append("<p>User" + userName + "</p>");
+					}, 
+					function(data){
+						$("#message").append("<p color='red'>" + data + "</p>");
+					}
+				);
+			});	
+		});	
+	</script>
+</head>
+<body>
+<p id="message">
+</p>
+	UserName
+	<input type="text" name="userName" id="user_name"/><br/>
+	Password
+	<input type="password" name="password" id="password"/><br/>
+	<input type="button" id="btn_submit" value="Login"/>
+	<input type="button" id="btn_cancel" value="Cancel"/>
+<p>
+</p>
+</body>
+</html>
