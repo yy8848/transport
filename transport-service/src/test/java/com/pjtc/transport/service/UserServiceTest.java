@@ -3,6 +3,7 @@ package com.pjtc.transport.service;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -90,6 +91,12 @@ public class UserServiceTest  {
 		} catch (ExceptionBase e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		try{
+			Assert.assertNotNull(userService.validateUser("tom@yahoo.com", "111111"));
+		} catch(Exception ex) {
+			Assert.fail();
 		}
 	}
 

@@ -1,6 +1,6 @@
 package com.pjtc.transport.dao;
 
-import com.pjtc.transport.InvalidCredentialException;
+import com.pjtc.transport.CredentialInvalidException;
 import com.pjtc.transport.ExceptionBase;
 import com.pjtc.transport.UserNotFoundException;
 import com.pjtc.transport.domain.Account;

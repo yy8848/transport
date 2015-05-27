@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.pjtc.transport.ExceptionBase;
-import com.pjtc.transport.InvalidCredentialException;
+import com.pjtc.transport.CredentialInvalidException;
 import com.pjtc.transport.UserNotFoundException;
 import com.pjtc.transport.domain.User;
 import com.pjtc.transport.service.UserService;
@@ -72,23 +72,6 @@ public class LocalAuthenticationController {
     	
     	request.getSession(false).invalidate();	
 		
-    }
-    
-    
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({UserNotFoundException.class, InvalidCredentialException.class})
-    @ResponseBody Message handleBadRequest(HttpServletRequest req, Exception ex) {
-    	
-        return new Message(Message.MESSAGE_TYPE_ERROR, 
-        		((ExceptionBase)ex).getLocalizedMessage(req.getLocale()));
-    }
-    
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({ExceptionBase.class})
-    @ResponseBody Message handleInternalServerError(HttpServletRequest req, Exception ex) {
-    	
-        return new Message(Message.MESSAGE_TYPE_ERROR, 
-        		((ExceptionBase)ex).getLocalizedMessage(req.getLocale()));
-    } 
+    }   
 
 }

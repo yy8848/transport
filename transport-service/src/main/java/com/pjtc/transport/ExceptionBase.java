@@ -59,5 +59,16 @@ public class ExceptionBase extends Exception {
 		String message = bundle.getString(messageKey);
 		return MessageFormat.format(message, arguments);
 	}
+	
+	@Override
+	public String getMessage(){		
+		String message = getLocalizedMessage(Locale.getDefault());		
+		
+		if (message == null){
+			message = super.getMessage();
+		}
+		
+		return message;
+	}
 
 }

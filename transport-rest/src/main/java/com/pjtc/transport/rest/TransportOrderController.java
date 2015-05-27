@@ -141,14 +141,5 @@ public class TransportOrderController {
     	
 		return transportOrders;	
     }
-    
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({ExceptionBase.class})
-    @ResponseBody Message handleInternalServerError(HttpServletRequest req, Exception ex) {
-    	
-        return new Message(Message.MESSAGE_TYPE_ERROR, 
-        		((ExceptionBase)ex).getLocalizedMessage(req.getLocale()));
-    } 
-	
 
 }
