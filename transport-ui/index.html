@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>XXX-HuoYunPinTai</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <!--<script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>-->
+		<!--<style type="text/css">
+			#list {
+				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
+				
+				margin-top: -1px;
+			}
+		</style>-->
+</head>
+<body>
+	<script>
+		
+	</script>
+	<!--<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">XXX货运平台--我是司机</h1>
+	</header>
+	<div class="mui-content">
+		<div class="mui-slider">
+			<div class="mui-slider-group">
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./img/ship.jpg">
+						<p class="mui-slider-title">货运平台</p>
+					</a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./img/ship2.jpg">
+						<p class="mui-slider-title">物流</p>
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+			</div>
+			
+			<div class="mui-card">
+			<ul class="mui-table-view mui-grid-view mui-grid-8">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="#">
+						<h4>3</h4>
+						<div class="mui-media-body">次完成订单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="#">
+						<h4>88886</h4>
+						<div class="mui-media-body">累计收入(￥)</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="#">
+						<h4>5.0</h4>
+						<div class="mui-media-body">货主评分</div>
+					</a>
+				</li>
+				
+			</ul>
+			</div>
+			<span class="mui-badge mui-badge-primary"></span>
+			<div class="mui-card">
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-2">
+					<a href="#">
+						<span class="mui-icon mui-icon-home"></span>
+						<div class="mui-media-body">常规路线接单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-2">
+					<a href="#">
+						<span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">5</span></span>
+						<div class="mui-media-body">临时接单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-2">
+					<a href="./views/add_route.html">
+						<span class="mui-icon mui-icon-location"></span>
+						<div class="mui-media-body">进行中的订单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-2">
+					<a href="./views/manage_route.html">
+						<span class="mui-icon mui-icon-settings"></span>
+						<div class="mui-media-body">管理我的路线</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+			<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-phone"></span>
+				<span class="mui-tab-label">找货</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		</div>
+	</div>
+	
+	<script src="js/mui.min.js"></script>
+	<script src="js/app.js"></script>
+	<script>
+		mui.init();
+//		mui.init({
+//			//swipeBack: false,
+//				statusBarBackground: '#f7f7f7',
+//				gestureConfig:{
+//					doubletap:true
+//				},
+//				subpages: [{
+//					id: 'manage_route',
+//					url: './views/manage_route.html',
+//					styles: {
+//						top: '45px',
+//						bottom: 0,
+//						bounce: 'vertical'
+//					}
+//				}]
+//		});
+		
+		//主列表点击事件
+		mui('#index').on('tap', 'a', function(){
+			var id = this.getAttribute('href');
+			mui.openWindow({
+							id: id,
+							url: this.href,
+							waiting: {
+								autoShow: false
+							}
+						});
+		});
+		
+//			mui('#index').on('tap', 'a', function() {
+//				var id = this.getAttribute('href');
+//				//var type = this.getAttribute("open-type");
+//				//if (type == "common") {
+//					if (~id.indexOf('offcanvas-')) {
+//						var pop = ~id.indexOf('offcanvas-with-right') ? "close" : "none";
+//						mui.openWindow({
+//							id: id,
+//							url: this.href,
+//							styles: {
+//								zindex: 9998,
+//								popGesture: pop
+//							},
+//							waiting: {
+//								autoShow: false
+//							}
+//						});
+//					} else {
+//						mui.openWindow({
+//							id: id,
+//							url: this.href,
+//							waiting: {
+//								autoShow: false
+//							}
+//						});
+//					}
+//				} else {
+//					if (id && ~id.indexOf('.html')) {
+//						var href = this.href;
+//						//获得共用模板组
+//						var template = ~href.indexOf('pullrefresh.html')?getTemplate('pullrefresh'):getTemplate('default');
+//						//判断是否显示右上角menu图标；
+//						var showMenu = ~href.indexOf('popovers.html')?true:false;
+//						//获得共用父模板
+//						var headerWebview = template.header;
+//						//获得共用子webview
+//						var contentWebview = template.content;
+//						var title = this.innerText.trim();
+//						//通知模板修改标题，并显示隐藏右上角图标；
+//						mui.fire(headerWebview,'updateHeader',{title:title,showMenu:showMenu});
+//						var reload = true;
+//						if (!template.loaded) {
+//							//if (contentWebview.getURL() != this.href) {
+//								contentWebview.loadURL(this.href);
+//							//} else {
+//							//	reload = false;
+//							//}
+//						} else {
+//							reload = false;
+//						}
+//						(!reload) && contentWebview.show();
+//						
+//						headerWebview.show('slide-in-right', 150);
+//					}
+//				}
+//			});
+		
+//		mui.plusReady(function(){
+//			
+//		});
+	</script>
+	<!--
+    	作者：xiongjiljob@163.com
+    	时间：2015-05-03
+    	描述：Ads
+    -->-->
+	
+	
+	
+</body>
+</html>

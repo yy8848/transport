@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.pjtc.transport.domain">
+    <class name="Account" table="account">
+        <id name="id">
+        	<generator class="native"/>
+        </id>
+        <property name="name" column="name"/>
+    </class>    
+    
+    <class name="User" table="user">
+        <id name="id">
+        	<generator class="native"/>
+        </id>
+        <property name="userName" column="user_name" not-null="true" unique="true"/>
+        <property name="password" column="password" not-null="true"/>
+        <property name="firstName" column="first_name"/>
+        <property name="lastName" column="last_name"/>
+    </class>
+    
+    <class name="TransportOrder" table="transport_order">
+    	<id name="id">
+        	<generator class="native"/>
+        </id>
+        
+        <timestamp name="lastChangedAt" access="field" column="last_changed_at"/>
+        
+        <many-to-one name="shipper" column="shipper_id" class="Account" not-null="true"/>
+        <bag name="items" inverse="true" cascade="all">
+        	<key column="order_id"/>
+        	<one-to-many class="TransportOrderItem"/>
+        </bag>
+        <property name="createdAt" type="timestamp" column="created_at" 
+        	update="false"/>
+        <many-to-one name="createdBy" column="created_by" class="User" not-null="true"/>        
+        <many-to-one name="lastChangedBy" column="last_changed_by" class="User" not-null="true"/>
+    </class>
+    
+    <class name="TransportOrderItem" table="transport_order_item">
+    	<id name="id">
+        	<generator class="native"/>
+        </id>
+        <property name="product" column="product" not-null="true"/>
+        <property name="productType" column="product_type" not-null="true"/>
+        <property name="weight" column="weight"/>
+        <property name="weightUoM" column="weight_uom"/>
+        <property name="quantity" column="quantity" not-null="true"/>
+        <property name="quantityUoM" column="quantity_uom" not-null="true"/>
+        <property name="length" column="length"/>
+        <property name="lengthUoM" column="length_uom"/>
+        <many-to-one name="order" column="order_id" class="TransportOrder" not-null="true"/>
+    </class>
+</hibernate-mapping>
