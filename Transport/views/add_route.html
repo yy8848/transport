@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Add Route</title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">添加新路线</h1>
+	</header>
+	
+	<div class="mui-content">
+		<span class="mui-badge mui-badge-primary">我的常规路线：</span>
+		<form id="routeManageForm" class="mui-input-group">
+			<div class="mui-input-row">
+				<label>出发地</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入">
+			</div>
+			<div class="mui-input-row">
+				<label>途径地</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入">
+			</div>
+			<div class="mui-input-row">
+				<label>目的地</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入">
+			</div>
+			<div class="mui-input-row">
+				<label>出发时间</label>
+				<input id="startDateInput" type="text" class="mui-input-clear" placeholder="请输入">
+			</div>
+			<div class="mui-input-row">
+				<label>到达时间</label>
+				<input id="arriveDateInput" type="text" class="mui-input-clear" placeholder="请输入">
+			</div>
+		</form>
+		<!--<hr>-->
+		<span class="mui-badge mui-badge-primary">我的车辆：</span>
+		<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">车型选择</a>
+						<!--<h5 class="mui-content-padded">图标左对齐</h5>-->
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row mui-radio mui-left">
+									<label>平板车</label>
+									<input name="radio1" type="radio">
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>箱车</label>
+									<input name="radio1" type="radio" checked>
+								</div>
+								<div class="mui-input-row mui-radio mui-left">
+									<label>高栏车</label>
+									<input name="radio1" type="radio" <!--disabled="disabled"-->>
+								</div>
+								<!--<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">取消</button>
+								</div>-->
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">车长</a>
+						<!--<h5 class="mui-content-padded">图标左对齐</h5>-->
+						<div class="mui-collapse-content"> 
+				        <h5>当前长度：<span id='inline-range-val'>4</span></h5> 
+				        <div class="mui-input-row mui-input-range">
+				            <!--<label>滑块：</label>-->
+				            <input type="range" id='inline-range' value="4.0" min="0" max="20.0" >
+				        </div>
+					</li>
+				</ul>
+				<!--<div class="mui-input-row mui-radio mui-left">
+					<label>radio</label>
+					<input name="radio1" type="radio">
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+					<label>radio</label>
+					<input name="radio1" type="radio" checked>
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+					<label>disabled radio</label>
+					<input name="radio1" type="radio" disabled="disabled">
+				</div>
+			</form>-->
+		</div>
+		<!--<form class="mui-input-group">
+			<div class="mui-input-row">
+				<label>车型</label>
+				<input type="text" class="mui-input-clear" placeholder="请选择您的车型">
+			</div>
+			<div class="mui-input-row">
+				<label>车牌</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入完整车牌">
+			</div>
+			<div class="mui-button-row">
+				<button id="nextBtn" type="button" class="mui-btn mui-btn-primary" onclick="navigate('driver_document', 'driver_document.html')">下一步</button>&nbsp;&nbsp;
+				<button id="cancelBtn" type="button" class="mui-btn mui-btn-primary" onclick="back()"> <!--onclick="navigate('home', 'home.html')"取消</button>
+			</div>
+		</form>-->
+		<div class="mui-button-row">
+			<button id="nextBtn" type="button" class="mui-btn mui-btn-primary" onclick="navigate('driver_document', 'driver_document.html')">下一步</button>
+			<button id="cancelBtn" type="button" class="mui-btn mui-btn-primary" onclick="back()">取消</button>
+		</div>
+		
+		<nav id="naviBar" class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="home.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<!--<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-phone"></span>
+				<span class="mui-tab-label">找货</span>
+			</a>-->
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">设置</span>
+			</a>
+		</nav>
+		
+	</div>
+	
+	<script>
+		function addRoute() {
+			
+		}
+		
+		function navigate(id, url) {
+			if (id && id.indexOf('.html')) {
+				mui.openWindow({
+								id: id,
+								url: url,
+								waiting: {
+									autoShow: false
+								}
+							});
+			}
+		}
+		
+		document.getElementById("startDateInput").addEventListener('tap',function () {
+			  	var dDate=new Date();
+				dDate.setFullYear(2015,0,1);
+				var minDate=new Date();
+				minDate.setFullYear(2015,0,1);
+				var maxDate=new Date();
+				maxDate.setFullYear(2099,11,31);
+				plus.nativeUI.pickDate( function(e) {
+					var d=e.date;
+					var startInput = document.getElementById("startDateInput");
+					startInput.value = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+					//info.innerText = '您选择的日期是:'+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+				},function(e){
+//					var startInput = document.getElementById("startDateInput");
+//					startInput.value = "您没有选择日期";
+					//info.innerText = "您没有选择日期";
+				},{title:"请选择日期",date:dDate,minDate:minDate,maxDate:maxDate});
+			});
+			
+		document.getElementById("arriveDateInput").addEventListener('tap',function () {
+		  	var dDate=new Date();
+			dDate.setFullYear(2015,0,1);
+			var minDate=new Date();
+			minDate.setFullYear(2015,0,1);
+			var maxDate=new Date();
+			maxDate.setFullYear(2099,11,31);
+			
+			plus.nativeUI.pickDate( function(e) {
+				var d=e.date;
+				var arriveInput = document.getElementById("arriveDateInput");
+				arriveInput.value = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+				//info.innerText = '您选择的日期是:'+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+			},function(e){
+//					var startInput = document.getElementById("startDateInput");
+//					startInput.value = "您没有选择日期";
+				//info.innerText = "您没有选择日期";
+			},{title:"请选择日期",date:dDate,minDate:minDate,maxDate:maxDate});
+		});
+		
+		mui('#naviBar').on('tap', 'a', function(){
+			var id = this.getAttribute('href');
+			
+			if (id && id.indexOf('.html')) {
+				mui.openWindow({
+								id: id,
+								url: this.href,
+								waiting: {
+									autoShow: false
+								}
+							});
+			}
+		});
+		
+		//监听input事件，获取range的value值，也可以直接element.value获取该range的值
+	    var rangeList = document.querySelectorAll('input[type="range"]');
+	    for(var i=0,len=rangeList.length;i<len;i++){
+	        rangeList[i].addEventListener('input',function(){
+	            if(this.id.indexOf('field')>=0){
+	                document.getElementById(this.id+'-input').value = this.value;
+	            }else{
+	                document.getElementById(this.id+'-val').innerHTML = this.value;
+	            }
+	            
+	
+	        });
+	    }
+	
+	    document.getElementById('field-range-input').addEventListener('input',function(){
+	        document.getElementById('field-range').value = this.value;
+	    });
+			
+//		pickDate : function() {
+//			var dDate=new Date();
+//			dDate.setFullYear(2015,0,1);
+//			var minDate=new Date();
+//			minDate.setFullYear(2015,0,1);
+//			var maxDate=new Date();
+//			maxDate.setFullYear(2099,11,31);
+//			
+//			plus.nativeUI.pickDate( function(e) {
+//				var d=e.date;
+//				var startInput = document.getElementById("startDateInput");
+//				startInput.value = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+//				//info.innerText = '您选择的日期是:'+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+ d.getDate();
+//			},function(e){
+////					var startInput = document.getElementById("startDateInput");
+////					startInput.value = "您没有选择日期";
+//				//info.innerText = "您没有选择日期";
+//			},{title:"请选择日期",date:dDate,minDate:minDate,maxDate:maxDate});
+//		};
+	</script>
+</body>
+</html>

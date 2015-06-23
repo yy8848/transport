@@ -1,0 +1,87 @@
+{
+  "version": "1.0.0",
+  "protocol": [
+    "http",
+    "https"
+  ],
+  "rooturl": "",
+  "index": {
+    "href": "views/register.html",
+    "resources": [
+      "manifest.json",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "views/home.html"
+    ],
+    "priority": 0
+  },
+  "pages": {
+    "views/find.html": {
+      "href": "views/find.html",
+      "resources": [],
+      "priority": 0
+    },
+    "views/my.html": {
+      "href": "views/my.html",
+      "resources": [],
+      "priority": 1
+    },
+    "views/setting.html": {
+      "href": "views/setting.html",
+      "resources": [],
+      "priority": 2
+    },
+    "views/home.html": {
+      "href": "views/home.html",
+      "resources": [
+        "img/ship.jpg",
+        "img/ship2.jpg",
+        "js/app.js"
+      ],
+      "refer": [
+        "views/find.html",
+        "views/my.html",
+        "views/setting.html",
+        "views/add_route.html",
+        "views/orders.html"
+      ],
+      "priority": 0
+    },
+    "views/driver_document.html": {
+      "href": "views/driver_document.html",
+      "resources": [],
+      "priority": 4
+    },
+    "views/add_route.html": {
+      "href": "views/add_route.html",
+      "resources": [
+        "js/common.js"
+      ],
+      "refer": [
+        "views/home.html",
+        "views/driver_document.html"
+      ],
+      "priority": 3
+    },
+    "views/orders.html": {
+      "href": "views/orders.html",
+      "resources": [],
+      "priority": 4
+    }
+  },
+  "idle": {
+    "resources": [
+      "js/main.js",
+      "index.html",
+      "views/logon.html",
+      "views/manage_route.html",
+      "img/cargo.jpg",
+      "js/manage_route.js",
+      "js/mui.js",
+      "css/mui.css"
+    ]
+  }
+}
